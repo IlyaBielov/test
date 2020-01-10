@@ -1,4 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+  background-color: #fafafa;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container960 {
+  margin: 0 auto;
+  padding: 15px;
+  max-width: 960px;
+}
+
+mat-divider {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}

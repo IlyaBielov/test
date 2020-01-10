@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ::ng-deep mat-form-field {
+    width: 100%;
+  }
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding: 0 15px 0 0;
+  }
+}
