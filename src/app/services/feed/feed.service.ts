@@ -8,24 +8,20 @@ import {catchError, map} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class FeedServiceService {
+export class FeedService {
   private rssToJsonServiceBaseUrl = 'https://rss2json.com/api.json?rss_url=';
 
   constructor(private http: HttpClient) {
   }
 
-  getFeedContent(url: string): Observable<Feed> {
+  getFeedContent(url: string): Observable<any> {
     return this.http.get(this.rssToJsonServiceBaseUrl + url)
-      .pipe(
-        map(this.extractFeeds),
-        catchError(this.handleError)
-      );
   }
 
-  private extractFeeds(res: Response): Feed {
-    const feed = res.json();
-    return feed || {};
-  }
+  // private extractFeeds(res: Response) {
+  //   const feed = JSON.stringify(res);
+  //   return feed || {};
+  // }
 
   private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
