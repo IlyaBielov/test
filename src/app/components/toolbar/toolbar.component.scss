@@ -1,0 +1,8 @@
+.toolbar-link {
+  &:link, &:visited, &:hover, &:active {
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -4,28 +4,29 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FeedCardComponent} from './components/feed-card/feed-card.component';
 import {
   MatButtonModule,
-  MatCardModule, MatDividerModule,
+  MatCardModule,
+  MatDividerModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
   MatMenuModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTreeModule
 } from '@angular/material';
-import {StripHtmlTagsPipe} from './pipes/strip-html-tags.pipe';
 import {HttpClientModule} from '@angular/common/http';
-import { AddRssChanelComponent } from './components/add-rss-chanel/add-rss-chanel.component';
-import { ChannelListMenuComponent } from './components/channel-list-menu/channel-list-menu.component';
+import {ChartAppModule} from '@app/components/chart/chart.module';
+import {ToolbarComponent} from './components/toolbar/toolbar.component';
+import {ChannelListModule} from '@app/components/channel-list/channel-list.module';
+import {ChannelsPageModule} from '@app/pages/channels-page/channels-page.module';
+import {AddRssChanelComponent} from '@app/components/add-rss-chanel/add-rss-chanel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FeedCardComponent,
-    StripHtmlTagsPipe,
+    ToolbarComponent,
     AddRssChanelComponent,
-    ChannelListMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,11 @@ import { ChannelListMenuComponent } from './components/channel-list-menu/channel
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    ChartAppModule,
+    ChannelListModule,
+    ChannelsPageModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddRssChanelComponent } from './add-rss-chanel.component';
+import {AddRssChanelComponent} from './add-rss-chanel.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('AddRssChanelComponent', () => {
   let component: AddRssChanelComponent;
@@ -8,9 +9,10 @@ describe('AddRssChanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddRssChanelComponent ]
+      declarations: [AddRssChanelComponent],
+      imports: [HttpClientTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

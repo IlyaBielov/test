@@ -1,0 +1,28 @@
+<ng-container *ngIf="this.database.rootLevelNodes?.length > 0; else noUrls">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+      <button (click)="feed.emit(node)" mat-button>
+        <mat-icon style="position: relative; top: -2px; padding-right: 5px">menu_book</mat-icon>
+        {{node.item.title}}
+      </button>
+    </mat-tree-node>
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+      <button [attr.aria-label]="'toggle ' + node.filename"
+              mat-icon-button matTreeNodeToggle>
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      {{node.item}}
+      <mat-progress-bar
+        *ngIf="node.isLoading"
+        class="example-tree-progress-bar"
+        mode="indeterminate"
+        style="margin-left: 15px"></mat-progress-bar>
+    </mat-tree-node>
+  </mat-tree>
+</ng-container>
+<ng-template #noUrls>
+  <p>Please add channel</p>
+</ng-template>
+

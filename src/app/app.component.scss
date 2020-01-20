@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+
+  .menu {
+    min-width: 30%;
+  }
+
+  .content {
+    width: 100%;
+
+    & ::ng-deep > .mat-card {
+      box-sizing: border-box;
+      width: 100%;
+      height: calc(100vh - 64px);
+      overflow: auto;
+    }
+  }
+
+  ::ng-deep mat-tree {
+    padding-right: 30px;
+    height: calc(100vh - 64px);
+    border-right: 2px solid rgba(204, 204, 204, 0.25);
+    overflow: auto;
+  }
+}

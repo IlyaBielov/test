@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ChannelsService} from '@app/services';
+import {DynamicDatabase} from '@app/services/tree/tree.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +7,19 @@ import {ChannelsService} from '@app/services';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'moc-rss';
-  feedUrls: string[];
-  feed = '';
-
-  constructor(private channels$: ChannelsService) {
+  constructor(private dataBaseService: DynamicDatabase) {
   }
 
   ngOnInit() {
-    this.channels$.feedUrlsStream().subscribe((data) => this.feedUrls = data);
+    if (localStorage.getItem('feed')) {
+      this.dataBaseService.currentFeedSubject.next(JSON.parse(localStorage.getItem('feed')));
+    }
   }
+
+  setChannels(value) {
+    this.dataBaseService.currentFeedSubject.next(value);
+    localStorage.setItem('feed', JSON.stringify(value));
+  }
+
+
 }

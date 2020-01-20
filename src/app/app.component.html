@@ -1,18 +1,12 @@
-<div class="container960">
-  <div class="header">
-    <app-add-rss-chanel></app-add-rss-chanel>
-  </div>
+<app-toolbar></app-toolbar>
 
+<div class="container">
   <div class="menu">
-    <mat-divider></mat-divider>
-
-    <app-channel-list-menu (currentChanel)="feed = $event" [chanelList]="feedUrls"></app-channel-list-menu>
-    <button mat-button>Statistics</button>
-
-    <mat-divider></mat-divider>
+    <app-channel-list-menu (feed)="setChannels($event)"></app-channel-list-menu>
   </div>
-
-  <div class="main">
-    <app-feed-card *ngIf="feed" [feed]="feed"></app-feed-card>
+  <div class="content">
+    <mat-card>
+      <router-outlet></router-outlet>
+    </mat-card>
   </div>
 </div>

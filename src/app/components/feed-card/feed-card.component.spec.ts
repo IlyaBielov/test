@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FeedCardComponent } from './feed-card.component';
+import {FeedCardComponent} from './feed-card.component';
+import {MatCardModule} from '@angular/material';
+import {StripHtmlTagsPipe} from '@app/pipes/strip-html/strip-html-tags.pipe';
 
 describe('FeedCardComponent', () => {
   let component: FeedCardComponent;
@@ -8,9 +10,10 @@ describe('FeedCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeedCardComponent ]
+      declarations: [FeedCardComponent, StripHtmlTagsPipe],
+      imports: [MatCardModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

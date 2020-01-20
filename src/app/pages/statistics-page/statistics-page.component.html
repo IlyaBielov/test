@@ -1,0 +1,12 @@
+<p>Number of channels: {{ feedUrls?.length }}</p>
+
+<ng-container *ngIf="notificationList && currentNotification; else noFeed">
+  <p>Authors: {{ notificationList | quantityProperty: 'author'  }}</p>
+  <p>Notifications: {{ notificationList | quantityProperty: 'title'  }}</p>
+  <mat-card>
+    <app-chart [dataList]="currentNotification?.content | checkDuplicateLetters"></app-chart>
+  </mat-card>
+</ng-container>
+<ng-template #noFeed>
+  <p>Please choose feed</p>
+</ng-template>

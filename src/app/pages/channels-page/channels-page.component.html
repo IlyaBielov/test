@@ -1,0 +1,8 @@
+<h2>Channel</h2>
+<ng-container *ngIf="feed; else noFeed">
+  <app-feed-card [feed]="feed"></app-feed-card>
+</ng-container>
+<ng-template #noFeed>
+  <p>Please choose feed</p>
+</ng-template>
+

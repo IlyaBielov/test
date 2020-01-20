@@ -1,15 +1,47 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {async, TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
+import {ToolbarComponent} from '@app/components/toolbar/toolbar.component';
+import {AddRssChanelComponent} from '@app/components/add-rss-chanel/add-rss-chanel.component';
+import {HttpClientModule} from '@angular/common/http';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatTreeModule
+} from '@angular/material';
+import {ChartAppModule} from '@app/components/chart/chart.module';
+import {ChannelListModule} from '@app/components/channel-list/channel-list.module';
+import {ChannelsPageModule} from '@app/pages/channels-page/channels-page.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatMenuModule,
+        MatDividerModule,
+        ChartAppModule,
+        ChannelListModule,
+        ChannelsPageModule,
+        MatTreeModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        ToolbarComponent,
+        AddRssChanelComponent,
       ],
     }).compileComponents();
   }));
@@ -18,18 +50,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'moc-rss'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('moc-rss');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('moc-rss app is running!');
   });
 });

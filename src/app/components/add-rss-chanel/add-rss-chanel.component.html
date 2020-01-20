@@ -1,10 +1,5 @@
 <div class="form">
-  <mat-form-field appearance="outline">
-    <mat-label>Rss chanel</mat-label>
-    <label>
-      <input #input autocomplete="none" matInput type="url">
-    </label>
-  </mat-form-field>
-  <button (click)="addUrl(input)" color="primary" mat-fab>+</button>
+  <input #input autocomplete="none" type="url" placeholder="Rss Channel">
+  <button mat-fab (click)="addUrl(input)">+</button>
 </div>
 

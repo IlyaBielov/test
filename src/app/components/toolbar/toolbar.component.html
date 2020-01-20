@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <div class="navigation">
+    <button mat-button>
+      <img
+        alt="master of code"
+        class="moc-icon"
+        src="./assets/images/moc-icon.png"
+        style="width: 24px">
+      <span>MOC Test</span>
+    </button>
+    <button mat-button routerLink="channels">
+      <span>Channels</span>
+    </button>
+    <button mat-button routerLink="statistics">
+      <span>Statistics</span>
+    </button>
+  </div>
+
+  <!-- This fills the remaining space of the current row -->
+  <div class="fill-remaining-space">
+    <app-add-rss-chanel></app-add-rss-chanel>
+  </div>
+
+  <div *ngIf="img">
+    <a [href]="link" class="toolbar-link" target="_blank">
+      <span>{{ name }}</span>
+    </a>
+  </div>
+</mat-toolbar>
