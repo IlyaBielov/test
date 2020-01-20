@@ -17,7 +17,23 @@ body {
   max-width: 960px;
 }
 
+.list-btn {
+  display: block !important;
+  text-align: left !important;
+  min-width: 100% !important;
+}
+
+
 mat-divider {
   margin-top: 5px !important;
   margin-bottom: 5px !important;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.moc-icon {
+  width: 26px;
+  margin-right: 5px;
 }
